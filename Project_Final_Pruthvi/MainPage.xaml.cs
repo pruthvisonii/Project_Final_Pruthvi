@@ -1,24 +1,22 @@
-﻿namespace Project_Final_Pruthvi;
+﻿using Microsoft.Maui.Controls;
 
-public partial class MainPage : ContentPage
+namespace Project_Final_Pruthvi
 {
-	int count = 0;
+    public partial class MainPage : ContentPage
+    {
+        public MainPage()
+        {
+            InitializeComponent();
+        }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+        private void OnViewStudentsClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new StudentPage());
+        }
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        private void OnViewCoursesClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new CoursePage());
+        }
+    }
 }
-
